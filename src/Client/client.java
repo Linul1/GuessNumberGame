@@ -17,7 +17,6 @@ public class client {
             if (playername.length() > 12){
                 System.out.println("Your playername is too long, please retype");
                 playername = sc.next();
-                continue;
             }
             else{
                 break;
@@ -28,7 +27,11 @@ public class client {
         while(true){
             int answer = sc.nextInt();
             client.Send(String.valueOf(answer));
-            System.out.println(client.Receive());
+            String s = client.Receive();
+            System.out.println(s);
+            if (s.contains("win")){
+                break;
+            }
         }
     }
 
